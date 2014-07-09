@@ -5,12 +5,24 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
     version="2.4">
 
-    <display-name>HelloWorld Application</display-name>
+    <display-name>AAspliter</display-name>
     <description>
-        This is a simple web application with a source code organization
-        based on the recommendations of the Application Developer's Guide.
+        This is a simple web application to easy split cost around a group of people
     </description>
+	<servlet>
+        <servlet-name>springMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        	<init-param>
+  				<param-name>contextConfigLocation</param-name>
+  				<param-value>classpath*:config/spring-servlet.xml</param-value>
+  			</init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
+    <servlet-mapping>
+        <servlet-name>springMVC</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
 
 
 </web-app>     
