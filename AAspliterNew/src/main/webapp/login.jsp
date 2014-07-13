@@ -9,10 +9,11 @@
 </head>
 <body>
 	
+	
 
 <div>
 	<form name="validation" action="validation" method="post">
-		Username <input type="text" name="username"><br>	
+		Username:  <input type="text" name="username"><br>	
 		Password: <input type="password" name="pwd">
 		<input type="submit" value="Submit">
 	</form>
