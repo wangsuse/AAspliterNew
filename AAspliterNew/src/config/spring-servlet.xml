@@ -18,7 +18,9 @@
     	<property name="prefix" value="/"></property>
     	<property name="suffix" value=".jsp"></property>
     </bean> 
-    
+    <mvc:resources location="/img/" mapping="/img/**"/>  
+	<mvc:resources location="/js/" mapping="/js/**"/>   
+	<mvc:resources location="/css/" mapping="/css/**"/> 
     <!-- <bean name="/admin/helloworld" class="com.shusenwang.web.controller.AdminController" /> -->
 
     <!-- ... -->
