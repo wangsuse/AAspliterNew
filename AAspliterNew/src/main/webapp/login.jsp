@@ -14,7 +14,7 @@
 <div>
 	<form name="validation" action="validation" method="post">
 		Username:  <input type="text" name="username"><br>	
-		Password: <input type="password" name="passwrod">
+		Password: <input type="password" name="password">
 		<input type="submit" value="Submit">
 	</form>
 	<img src="img/welcome.jpg" alt="welcome">
