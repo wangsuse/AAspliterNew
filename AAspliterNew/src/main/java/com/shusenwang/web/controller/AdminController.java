@@ -33,7 +33,7 @@ public class AdminController {
     	map.put("user2", "wss2");
     	map.put("user3", "wss3");
     	
-        return "adminLogin";
+        return "admin";
     }
     
   

@@ -14,7 +14,7 @@ import com.shusenwang.web.entity.User;
 public class LoginController {
 
 	@RequestMapping(value="/login", method = RequestMethod.GET)
-    public ModelAndView validation(Model model) {
+    public ModelAndView login(Model model) {
         return new ModelAndView("/login");
     }
 	
