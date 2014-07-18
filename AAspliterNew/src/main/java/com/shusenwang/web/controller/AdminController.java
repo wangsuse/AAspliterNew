@@ -22,6 +22,7 @@ public class AdminController {
 
 	@RequestMapping(value="/validation", method = RequestMethod.POST)
     public ModelAndView validation(Model model) {
+		//Todo validate user password and username
         return new ModelAndView("/index");
     }
 	
@@ -45,4 +46,11 @@ public class AdminController {
 		request.setAttribute("password", user.getPassword());
         return "index";
     }
+    
+    @RequestMapping(value="/updateUser", method = RequestMethod.POST)
+    public String register(User user,HttpServletRequest request ) {
+    	request.setAttribute("success", "true");
+    	System.out.println(user.getEmail());
+        return "register";
+}
 }

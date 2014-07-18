@@ -24,4 +24,9 @@ public class LoginController {
 	        return "register";
 	}
 	
+	@RequestMapping(value="/profile", method = RequestMethod.GET)
+    public String profile(User user,HttpServletRequest request ) {
+        return "profile";
+}
+	
 }
