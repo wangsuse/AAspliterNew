@@ -41,16 +41,18 @@ public class AdminController {
     
     @RequestMapping(value="/registerUser", method = RequestMethod.POST)
     public String registerUser(User user,HttpServletRequest request ) {
+    	if (!user.getPassword1().equals(user.getPassword2())){
+    		return "error";
+    	}
     	request.setAttribute("userName", user.getUserName());
-		request.setAttribute("age", user.getAge());
-		request.setAttribute("password", user.getPassword());
+		request.setAttribute("password", user.getPassword1());
         return "index";
     }
     
     @RequestMapping(value="/updateUser", method = RequestMethod.POST)
     public String register(User user,HttpServletRequest request ) {
     	request.setAttribute("success", "true");
-    	System.out.println(user.getEmail());
+    	
         return "register";
 }
 }
