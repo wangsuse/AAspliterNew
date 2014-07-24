@@ -1,33 +1,40 @@
 package com.shusenwang.web.controller;
 
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.shusenwang.web.entity.User;
 
 
 @Controller
-
 public class AdminController {
 	
 
 	@RequestMapping(value="/validation", method = RequestMethod.POST)
-    public ModelAndView validation(Model model) {
+    public ModelAndView validation(@RequestParam("username") String username, @RequestParam("password") String password,HttpServletRequest request, HttpServletResponse response) {
+	
+		request.getSession().setAttribute("login", "yes");
+		request.getSession().setAttribute("username", username);
 		//Todo validate user password and username
+		
         return new ModelAndView("/index");
     }
 	
     @RequestMapping(value="/admin/manager", method = RequestMethod.GET)
-    public String manager(Model model) {
+    public String manager(HttpServletRequest request) {
         //model.addAttribute("message", "Hello World!");
     	Map<String, Object> map=new HashMap<String, Object>();
     	map.put("user1", "wss");
@@ -44,8 +51,8 @@ public class AdminController {
     	if (!user.getPassword1().equals(user.getPassword2())){
     		return "error";
     	}
-    	request.setAttribute("userName", user.getUserName());
-		request.setAttribute("password", user.getPassword1());
+    	request.getSession().setAttribute("userName", user.getUserName());
+		request.getSession().setAttribute("login", "yes");
         return "index";
     }
     
@@ -54,5 +61,27 @@ public class AdminController {
     	request.setAttribute("success", "true");
     	
         return "register";
-}
+    }	
+    
+    @RequestMapping(value="/index", method = RequestMethod.GET)
+    public String index(HttpServletRequest request ) {
+
+        return "index";
+    }
+    
+    @RequestMapping(value="/loadContent", method = RequestMethod.GET)
+    public void loadContent(HttpServletRequest request, HttpServletResponse response ) {
+
+    	String result="{"+
+				 "\"username\":"+ request.getSession().getAttribute("username")+"}";
+		PrintWriter out=null;
+		try {
+			out=response.getWriter();
+			out.write(result);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		response.setContentType("application/json");
+    }
 }

@@ -9,6 +9,16 @@
     <description>
         This is a simple web application to easy split cost around a group of people
     </description>
+	<!-- loading sequence : 1. context-param, 2, listener 3 filter 4 servlet -->   
+    <listener>
+    	 <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath*:config/applicationContext.xml</param-value>
+	</context-param>no
+	
+    
 	<servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
