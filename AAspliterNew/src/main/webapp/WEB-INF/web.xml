@@ -16,7 +16,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:config/applicationContext.xml</param-value>
-	</context-param>no
+	</context-param>
 	
     
 	<servlet>
@@ -31,7 +31,7 @@
 
     <servlet-mapping>
         <servlet-name>springMVC</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.form</url-pattern>
     </servlet-mapping>
     
     <filter>

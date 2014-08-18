@@ -10,6 +10,6 @@
 </head>
 <body>
 <h4>Error 了, error message:</h4>
-<h4><%=exception.toString() %></h4>
+
 </body>
 </html>

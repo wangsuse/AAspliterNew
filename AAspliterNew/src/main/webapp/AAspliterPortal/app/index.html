@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>AAspliter Portal</title>
+
+    <link rel="stylesheet" type="text/css" href="portal.css" />
+
+    <!-- GC -->
+
+    <!-- <x-compile> -->
+
+    <!-- <x-bootstrap> -->
+    <script type="text/javascript" src="../../AAspliterPortal/shared/include-ext.js"></script>
+    <script type="text/javascript" src="../../AAspliterPortal/shared/options-toolbar.js"></script>
+    <!-- </x-bootstrap> -->
+
+
+    <script type="text/javascript">
+        Ext.Loader.setPath('Ext.app', '');
+    </script>
+    <script type="text/javascript" src="portal.js"></script>
+    <script type="text/javascript">
+        Ext.require([
+            'Ext.layout.container.*',
+            'Ext.resizer.Splitter',
+            'Ext.fx.target.Element',
+            'Ext.fx.target.Component',
+            'Ext.window.Window',
+            'Ext.app.view.Portlet',
+            'Ext.app.view.PortalColumn',
+            'Ext.app.view.PortalPanel',
+            'Ext.app.view.Portlet',
+            'Ext.app.view.PortalDropZone',
+            'Ext.app.view.GridPortlet',
+            'Ext.app.view.ChartPortlet'
+        ]);
+
+        Ext.onReady(function(){
+            Ext.create('Ext.app.Portal');
+        });
+    </script>
+    <!-- </x-compile> -->
+</head>
+<body>
+    <span id="app-msg" style="display:none;"></span>
+</body>
+</html>
